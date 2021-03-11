@@ -1,11 +1,11 @@
-## My Web Application (Title)
+## COVID-19 Aware
 
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
 
 ## General Info
-This browser based web application to ...
+This browser based web application targeting people concenred about COVID-19 that provides information about how establishments that are interested in visiting are handling COVID-19 by providing crowd sourced business reviews that focus on COVID-19 prevention and precautions. 
 
 ## Technologies
 Technologies used for this project:
@@ -26,11 +26,11 @@ Content of the project folder:
 It has the following subfolders and files:
 ├── .git                     # Folder for git repo
 ├── images                   # Folder for images
-    /blah.jpg                #
 ├── scripts                  # Folder for scripts
-    /blah.js                 #
 ├── styles                   # Folder for styles
-    /blah.css                #
+├── main.html                # ...
+├── profile.html             # ...
+├── reviews.html             # HTML file with bootstrap layout for reviews page
 
 Firebase hosting files:
 ├── .firebaserc...
@@ -45,3 +45,4 @@ Tips for file naming files and folders:
 ## Team
 Jonathan Paugh
 Kenneth Ng
+Anna An
