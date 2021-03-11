@@ -14,7 +14,27 @@
 
 
     <!-- Optional styles and scripts of your own -->
+    <style>
+        #profile_picture {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            margin-top: 30px;
+        }
 
+        .text_center {
+            text-align: center;
+        }
+
+        .img_review {
+            width: 20px;
+            height: 20px;
+        }
+        .quickacc {
+            display: inline-block;
+            margin: 20px;
+        }
+    </style>
 
 </head>
 
@@ -51,14 +71,39 @@
     </nav>
 
     <div class="container">
-        <h1 class="display-4">Profile Page!</h1>
+    </div>
+    <div class="text-center">
+        <a href="#"><img src="images/pepe.jpg" id="profile_picture" alt="profile_picture"></a>
+    </div>
+    <br>
+    <div>
+        <h3 class="text_center">First Last</h3>
+        <p class="text_center">Vanvouver, BC</p>
     </div>
 
-    <nav class="navbar fixed-bottom navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Fixed bottom</a>
-        </div>
-    </nav>
+    <div class="text_center">
+        <span class="quickacc">
+            <a role="button">
+                <img  src="images/review.png" alt="review" class="img_review">
+                <br>MY REVIEWS
+            </a>
+        </span>
+        <span class="quickacc">
+            <a role="button">
+                <img  src="images/bookmark.png" alt="bookmark" class="img_review">
+                <br>BOOKMARKS
+            </a>
+        </span>
+        <br><br>
+    </div>
+
+    <div class="list-group list-group-flush text_center">
+        <a href="#" class="list-group-item list-group-item-action">Edit MyProfile</a>
+        <a href="#" class="list-group-item list-group-item-action">View MyActivity</a>
+        <a href="#" class="list-group-item list-group-item-action">Manage MyBusiness</a>
+        <a href="#" class="list-group-item list-group-item-action">Settings</a>
+        <a href="#" class="list-group-item list-group-item-action">Support</a>
+      </div>
 
     <!----------------------------------------------->
     <!-- JS: Boostrap, Firebase, API related    -->
