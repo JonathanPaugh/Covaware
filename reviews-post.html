@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Post Review</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    <link type="text/css" rel="stylesheet" href="./css/main.css"/>
+</head>
+
+<body>
+    <div class="container-fluid h-100 p-0">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">COVID-19 Aware</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <div>
+                <div class="row p-4">
+                    <div class="col-sm">
+                        <img class="img-fluid" src="https://dummyimage.com/512/000/fff" />
+                    </div>
+                    <div class="col-sm">
+                        <div class="p-3"></div>
+                        <div class="display-5 p-2 text-center">Grocery Store</div>
+                        <div class="p-3"></div>
+                        <div class="text-center">Cras quis tempor nunc. Donec laoreet ante tellus, in malesuada nulla rutrum eget. Vivamus tincidunt ut augue at lobortis.</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="d-flex flex-column align-items-center justify-content-center p-4">
+                    <div class="display-4">Review</div>
+                    <div class="p-1"></div>
+                    <div class="d-flex flex-row">
+                        <img class="img-fluid" src="./images/star.png">
+                        <img class="img-fluid" src="./images/star.png">
+                        <img class="img-fluid" src="./images/star.png">
+                        <img class="img-fluid" src="./images/star.png">
+                        <img class="img-fluid" src="./images/star.png">
+                    </div>
+                    <div class="p-2"></div>
+                    <form class="form-group" style="width: 60%;">
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <textarea class="form-control" rows="6"></textarea>
+                            <div class="p-3"></div>
+                            <button type="submit" class="btn btn-lg btn-outline-warning">Post Review</button>
+                        </div>
+                    </form>
+                    <div class="p-5"></div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar fixed-bottom navbar-light bg-warning">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">COVID-19 Aware</a>
+            </div>
+        </nav>
+    </div>
+
+    <!----------------------------------------->
+    <!-- JS: Boostrap, Firebase, API related -->
+    <!----------------------------------------->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
+    <script src="./js/firebase.js"></script>
+
+    <!----------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here -->
+    <!----------------------------------------------------------->
+</body>
+
+</html>
