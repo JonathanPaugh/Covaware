@@ -2,7 +2,7 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 var uiConfig = {
     callbacks: {
-        signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+        signInSuccessWithAuthResult: function (authResult) {
             var user = authResult.user;
             if (authResult.additionalUserInfo.isNewUser) {
                 db.collection("users").doc(user.uid).set({

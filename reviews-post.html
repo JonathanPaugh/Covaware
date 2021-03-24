@@ -45,16 +45,19 @@
             <div>
                 <div class="row p-4">
                     <div class="col-sm">
-                        <img class="img-fluid" src="https://dummyimage.com/512/000/fff" />
+                        <img id="business-image" class="img-fluid" src="https://dummyimage.com/512/000/fff" />
                     </div>
                     <div class="col-sm">
                         <div class="p-3"></div>
-                        <div class="display-5 p-2 text-center">Grocery Store</div>
+                        <div id="business-name" class="display-5 p-2 text-center">Business Name</div>
                         <div class="p-3"></div>
-                        <div class="text-center">Cras quis tempor nunc. Donec laoreet ante tellus, in malesuada nulla rutrum eget. Vivamus tincidunt ut augue at lobortis.</div>
+                        <div id="business-type" class="display-5 p-2 text-center">Business Type</div>
+                        <div class="p-3"></div>
+                        <div id="business-description" class="text-center">Business Description</div>
                     </div>
                 </div>
             </div>
+
             <div>
                 <div class="d-flex flex-column align-items-center justify-content-center p-4">
                     <div class="display-4">Review</div>
@@ -71,13 +74,14 @@
                         <div class="d-flex flex-column align-items-center justify-content-center">
                             <textarea class="form-control" rows="6"></textarea>
                             <div class="p-3"></div>
-                            <button type="submit" class="btn btn-lg btn-outline-warning">Post Review</button>
+                            <button type="button" class="btn btn-lg btn-outline-warning">Post Review</button>
                         </div>
                     </form>
-                    <div class="p-5"></div>
                 </div>
             </div>
         </div>
+
+        <div class="p-5"></div>
 
         <nav class="navbar fixed-bottom navbar-light bg-warning">
             <div class="container-fluid">
@@ -85,10 +89,6 @@
             </div>
         </nav>
     </div>
-
-    <!----------------------------------------->
-    <!-- JS: Boostrap, Firebase, API related -->
-    <!----------------------------------------->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
@@ -102,9 +102,30 @@
 
     <script src="./js/firebase.js"></script>
 
-    <!----------------------------------------------------------->
-    <!-- JS files: Your own JavaScript functions included here -->
-    <!----------------------------------------------------------->
+    <script src="./js/general.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/business.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            $("button").click(postReview);
+        });
+
+        function postReview() 
+        {
+            let id = getUrl().get("id");
+            if (id == null) { console.log("Business not valid"); return; }
+            withUserCurrent(user => {
+                getBusiness(id).collection("reviews").add({
+                    name: user.data().name,
+                    rating: 5,
+                    review: $("textarea").val()
+                }).then(() => {
+                    redirect("reviews.html");
+                });
+            });
+        }
+    </script>
 </body>
 
 </html>
