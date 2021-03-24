@@ -1,5 +1,11 @@
-function getUrl(){
+function getUrl() {
     return new URLSearchParams(window.location.search);
+}
+
+function fetchFile(path, callback) {
+    fetch(`${window.location.origin}/${path}`)
+        .then(response => response.text())
+        .then(callback);
 }
 
 function getBusiness(id) {
@@ -23,6 +29,3 @@ function withUserCurrent(callback) {
         }
     });
 }
-
-
-

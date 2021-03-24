@@ -2,263 +2,234 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
   <title>Reviews - COVID-19 Aware</title>
-
-  <!-- Bootstrap for Mobile-first, and JQuery -->
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <!-- Styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+  <style>
+  img {
+    max-width: 100%;
+  }
 
+  .precautions {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 
-  <!-- Optional styles and scripts of your own -->
-<style>
-img {
-  max-width: 100%;
-}
+  .mb-4 {
+    margin-top: 1.5rem;
+  }
 
-.precautions {
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
-.mb-4 {
-  margin-top: 1.5rem;
-}
-
-.btn {
-  float: right;
-  margin-bottom: 1em;
-  position: relative;
-  bottom: 0;
-}
-</style>
-
+  .btn {
+    float: right;
+    margin-bottom: 1em;
+    position: relative;
+    bottom: 0;
+  }
+  </style>
 </head>
 
 <body>
-
-  <!-------------------------------------->
-  <!-- The following is HTML for layout -->
-  <!-------------------------------------->
-  <!-- Header Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">COVID-19 Aware</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <div class="container">
     <h1 class="display-4">Reviews</h1>
   </div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">Restaurant at which I will cry</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5.0</small></h6>
-        <p class="precautions">Hand sanitizer, social distancing, masks required.</p>
-        <p class="card-text">Customizing bootstrap is actually such a hassle someone please make it stop ok thanks bye.</p>
-        <span class="card-text"><small class="text-muted">Review posted 8 hours ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">Restaurant at which I will cry</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5.0</small></h6>
+          <p class="precautions">Hand sanitizer, social distancing, masks required.</p>
+          <p class="card-text">Customizing bootstrap is actually such a hassle someone please make it stop ok thanks bye.</p>
+          <span class="card-text"><small class="text-muted">Review posted 8 hours ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">"Ok I think I figured out how this is going to work" Restaurant</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>4 / 5 fingersnaps</small></h6>
-        <p class="precautions">Plexiglass barriers.</p>
-        <p class="card-text">A cozy nook nook to grab yumyum for your tumtum.</p>
-        <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">"Ok I think I figured out how this is going to work" Restaurant</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>4 / 5 fingersnaps</small></h6>
+          <p class="precautions">Plexiglass barriers.</p>
+          <p class="card-text">A cozy nook nook to grab yumyum for your tumtum.</p>
+          <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">Definitely my Favourite Restaurant</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>4 / 5 jazz hands</small></h6>
-        <p class="precautions">Masks mandatory, plexiglass barriers.</p>
-        <p class="card-text">Only salt. No sweet.</p>
-        <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">Definitely my Favourite Restaurant</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>4 / 5 jazz hands</small></h6>
+          <p class="precautions">Masks mandatory, plexiglass barriers.</p>
+          <p class="card-text">Only salt. No sweet.</p>
+          <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">YUMMY!</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>1 / 5 make sense</small></h6>
-        <p class="precautions">Masks mandatory, plexiglass barriers.</p>
-        <p class="card-text">hi i'm an instructor and i'm going to make the midterm extra long just to artificially lower the class average.</p>
-        <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">YUMMY!</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>1 / 5 make sense</small></h6>
+          <p class="precautions">Masks mandatory, plexiglass barriers.</p>
+          <p class="card-text">hi i'm an instructor and i'm going to make the midterm extra long just to artificially lower the class average.</p>
+          <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">"Too salty." -Goldilocks probably</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>1 / 5 but why though</small></h6>
-        <p class="precautions">Masks mandatory, plexiglass barriers.</p>
-        <p class="card-text">n ** p =/= n ^ p</p>
-        <span class="card-text"><small class="text-muted">Review posted 1 second ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">"Too salty." -Goldilocks probably</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>1 / 5 but why though</small></h6>
+          <p class="precautions">Masks mandatory, plexiglass barriers.</p>
+          <p class="card-text">n ** p =/= n ^ p</p>
+          <span class="card-text"><small class="text-muted">Review posted 1 second ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">When are instructor feedback surveys released? Asking for a friend.</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>5 / 5 v engaging</small></h6>
-        <p class="precautions">Social distancing, capacity limits.</p>
-        <p class="card-text">I eat here before I go to therapy.</p>
-        <span class="card-text"><small class="text-muted">Review posted 1 eon ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">When are instructor feedback surveys released? Asking for a friend.</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>5 / 5 v engaging</small></h6>
+          <p class="precautions">Social distancing, capacity limits.</p>
+          <p class="card-text">I eat here before I go to therapy.</p>
+          <span class="card-text"><small class="text-muted">Review posted 1 eon ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">burger dairy</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5 stars</small></h6>
-        <p class="precautions">Social distancing, masks required, capacity limits.</p>
-        <p class="card-text">I'm lactose intolerant. Intolerance? In 2021??</p>
-        <span class="card-text"><small class="text-muted">Review posted 1 day ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">burger dairy</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5 stars</small></h6>
+          <p class="precautions">Social distancing, masks required, capacity limits.</p>
+          <p class="card-text">I'm lactose intolerant. Intolerance? In 2021??</p>
+          <span class="card-text"><small class="text-muted">Review posted 1 day ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">burger dairy</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5 stars</small></h6>
-        <p class="precautions">Social distancing, masks required, capacity limits.</p>
-        <p class="card-text">I'm lactose intolerant. Intolerance? In 2021??</p>
-        <span class="card-text"><small class="text-muted">Review posted 1 day ago</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">burger dairy</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5 stars</small></h6>
+          <p class="precautions">Social distancing, masks required, capacity limits.</p>
+          <p class="card-text">I'm lactose intolerant. Intolerance? In 2021??</p>
+          <span class="card-text"><small class="text-muted">Review posted 1 day ago</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="card mb-4">
-  <div class="row g-0">
-    <div class="col-md-5">
-      <img src="./images/pepe.jpg" alt="sad pepe">
-    </div>
-    <div class="col-md-7">
-      <div class="card-body">
-        <h5 class="card-title">thanks, but no thanks</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-        <h6 class="card-subtitle mb-2 text-muted"><small>3.5 / 5 stars</small></h6>
-        <p class="precautions">Social distancing, masks required, capacity limits.</p>
-        <p class="card-text">Insert flavour text here.</p>
-        <span class="card-text"><small class="text-muted">Review posted just now</small></span>
-        <a href="#" class="btn btn-primary">BUTT ON</a>
+  <div class="card mb-4">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="./images/pepe.jpg" alt="sad pepe">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title">thanks, but no thanks</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
+          <h6 class="card-subtitle mb-2 text-muted"><small>3.5 / 5 stars</small></h6>
+          <p class="precautions">Social distancing, masks required, capacity limits.</p>
+          <p class="card-text">Insert flavour text here.</p>
+          <span class="card-text"><small class="text-muted">Review posted just now</small></span>
+          <a href="#" class="btn btn-primary">BUTT ON</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-  <!-- Footer -->
-  <nav class="navbar static-bottom navbar-light bg-warning">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">COVID-19 Aware</a>
-    </div>
-  </nav>
-  <!----------------------------------------------->
-  <!-- JS: Boostrap, Firebase, API related    -->
-  <!----------------------------------------------->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+  <!-- Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
+  crossorigin="anonymous">
   </script>
 
-  <!--------------------------------------------------------------------->
-  <!-- JS files: Your own JavaScript functions included here    -->
-  <!--------------------------------------------------------------------->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
 
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
+  <script src="./js/firebase.js"></script>
+  <script src="./js/general.js"></script>
+  <script src="./js/init.js"></script>
+
+  <!-- Scripts -->
 
 </body>
 
