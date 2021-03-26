@@ -23,7 +23,7 @@
                     <div class="p-3"></div>
                     <div id="business-name" class="display-5 p-2 text-center">Business Name</div>
                     <div class="p-3"></div>
-                    <div id="business-type" class="display-5 p-2 text-center">Business Type</div>
+                    <div id="business-type" class="display-7 p-2 text-center">Business Type</div>
                     <div class="p-3"></div>
                     <div id="business-description" class="text-center">Business Description</div>
                 </div>
@@ -35,18 +35,18 @@
                 <div class="display-4">Review</div>
                 <div class="p-1"></div>
                 <div class="d-flex flex-row">
-                    <img class="img-fluid" src="./images/star.png">
-                    <img class="img-fluid" src="./images/star.png">
-                    <img class="img-fluid" src="./images/star.png">
-                    <img class="img-fluid" src="./images/star.png">
-                    <img class="img-fluid" src="./images/star.png">
+                    <img class="star img-fluid" src="./images/star-off.png">
+                    <img class="star img-fluid" src="./images/star-off.png">
+                    <img class="star img-fluid" src="./images/star-off.png">
+                    <img class="star img-fluid" src="./images/star-off.png">
+                    <img class="star img-fluid" src="./images/star-off.png">
                 </div>
                 <div class="p-2"></div>
                 <form class="form-group" style="width: 60%;">
                     <div class="d-flex flex-column align-items-center justify-content-center">
                         <textarea class="form-control" rows="6"></textarea>
                         <div class="p-3"></div>
-                        <button type="button" class="btn btn-lg btn-outline-warning">Post Review</button>
+                        <button type="button" class="btn btn-lg btn-warning">Post Review</button>
                     </div>
                 </form>
             </div>
@@ -82,7 +82,33 @@
     <script>
         $(document).ready(() => {
             $("button").click(postReview);
+            $(".star").click(setRating)
+            $(".star").hover(hoverStart, hoverStop)
         });
+
+        var rating = 0;
+
+        function hoverStart(event) {
+            let index = $(event.target).index(".star");
+            setStars(index + 1);
+        }
+
+        function hoverStop(event) {
+            setStars(rating);
+        }
+
+        function setStars(value) {
+            console.log(value);
+            $(".star").attr("src", "./images/star-off.png");
+            for (var i = 0; i < value; i++) {
+                $(".star").eq(i).attr("src", "./images/star-on.png");
+            }
+        }
+
+        function setRating() {
+            let index = $(event.target).index(".star");
+            rating = index + 1;
+        }
 
         function postReview() 
         {
@@ -91,8 +117,9 @@
             withUserCurrent(user => {
                 getBusiness(id).collection("reviews").add({
                     name: user.data().name,
-                    rating: 5,
-                    review: $("textarea").val()
+                    rating: rating,
+                    review: $("textarea").val(),
+                    time: new Date().getTime()
                 }).then(() => {
                     redirect("reviews.html");
                 });

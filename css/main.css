@@ -2,3 +2,8 @@ html,
 body {
     height: 100%;
 }
+
+.star {
+    width: 32px;
+    height: 32px;
+}
