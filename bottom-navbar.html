@@ -13,31 +13,25 @@
 
   <!-- Optional styles and scripts of your own -->
   <style>
-    img {
-      max-width: 100%;
+    #bottom_nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      background-color: #003566;
+      height: 60px;
     }
 
-    .precautions {
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+    .bottom_nav_icons {
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
     }
 
-    .mb-4 {
-      margin-top: 1.5rem;
+    .image_icons {
+      width: 40px;
+      height: 40px;
     }
 
-    .btn {
-      float: right;
-      margin-bottom: 1em;
-      position: relative;
-      bottom: 0;
-    }
-
-    .navbar-text {
-      justify-self: flex-end;
-    }
   </style>
 
 </head>
@@ -75,55 +69,16 @@
   </nav>
 
   <div class="container">
-    <h1 class="display-4">Reviews</h1>
-  </div>
 
-  <div class="card mb-4">
-    <div class="row g-0">
-      <div class="col-md-5">
-        <img src="./images/pepe.jpg" alt="sad pepe">
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h5 class="card-title">Restaurant at which I will cry</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-          <h6 class="card-subtitle mb-2 text-muted"><small>4.5 / 5.0</small></h6>
-          <p class="precautions">Hand sanitizer, social distancing, masks required.</p>
-          <p class="card-text">Customizing bootstrap is actually such a hassle someone please make it stop ok thanks
-            bye.</p>
-          <span class="card-text"><small class="text-muted">Review posted 8 hours ago</small></span>
-          <a href="#" class="btn btn-primary">BUTT ON</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="card mb-4">
-    <div class="row g-0">
-      <div class="col-md-5">
-        <img src="./images/pepe.jpg" alt="sad pepe">
-      </div>
-      <div class="col-md-7">
-        <div class="card-body">
-          <h5 class="card-title">"Ok I think I figured out how this is going to work" Restaurant</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Restaurant</h6>
-          <h6 class="card-subtitle mb-2 text-muted"><small>4 / 5 fingersnaps</small></h6>
-          <p class="precautions">Plexiglass barriers.</p>
-          <p class="card-text">A cozy nook nook to grab yumyum for your tumtum.</p>
-          <span class="card-text"><small class="text-muted">Review posted 2 hours ago</small></span>
-          <a href="#" class="btn btn-primary">BUTT ON</a>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Bottom nav bar template -->
-  <nav id="bottomNav" class="navbar static-bottom navbar-light bg-warning">
-    <div class="container-fluid">
-      <a class="navbar-brand me-auto p-2" href="#">COVID-19 Aware</a>
-      <a class="navbar-text p-2" href="#">About</a>
-      <a class="navbar-text p-2" href="#">Contact</a>
-    </div>
+  <nav id="bottom_nav" class="navbar fixed-bottom navbar-expand-sm">
+    <a href="news.html" class="bottom_nav_icons"><img class="image_icons" src="images/news_icon.png" alt="news_icon"></a>
+    <a href="#" class="bottom_nav_icons"><img class="image_icons" src="images/notification_icon.png" alt="notification_icon"></a>
+    <a href="#" class="bottom_nav_icons"><img class="image_icons" src="images/like_icon.png" alt="like_icon"></a>
+    <a href="profile.html" class="bottom_nav_icons"><img class="image_icons" src="images/profile_icon.png" alt="profile_icon"></a>
+
   </nav>
 
   <!----------------------------------------------->
@@ -131,7 +86,7 @@
   <!----------------------------------------------->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
-  </script>
+    </script>
 
   <!--------------------------------------------------------------------->
   <!-- JS files: Your own JavaScript functions included here    -->
