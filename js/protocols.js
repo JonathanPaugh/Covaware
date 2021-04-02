@@ -1,1 +1,1 @@
-const protocols = Object.freeze({ "Masks": 1, "Sanitization": 2, "Logistics": 3, "Distancing": 4, "Barriers": 5 })
+const protocols = Object.freeze([ "Masks", "Sanitization", "Logistics", "Distancing", "Barriers" ]);

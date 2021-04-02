@@ -10,10 +10,16 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <link type="text/css" rel="stylesheet" href="./css/main.css"/>
+    <style>
+        .protocols {
+            position: relative;
+            right: 16px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div id="business"></div>
         <div class="d-flex flex-column align-items-center justify-content-center p-4">
             <div class="display-4">Reviews</div>
@@ -61,12 +67,13 @@
                     createReview(review.data().name, 
                         review.data().rating, 
                         review.data().review, 
-                        review.data().time);
+                        review.data().time,
+                        review.data().protocols);
                 });
             });
         });
 
-        function createReview(name, rating, content, time) {
+        function createReview(name, rating, content, time, protocols) {
             fetchFile("review.html", data => {
                 let review = $(data).appendTo("#reviews");
                 review.find(".review-name").html(name);
@@ -81,6 +88,14 @@
                 for (var i = rating; i < 5; i++) {
                     review.find(".review-rating").append(createStar(false));
                 }
+
+                if (protocols == null) {
+                    return;
+                }
+
+                protocols.forEach(protocol => {
+                    createProtocol(review.find(".protocols"), protocol)
+                });
             });
         }
 
@@ -88,6 +103,16 @@
             return createElement("img")
                 .addClass("star")
                 .attr("src", active ? "./images/star-on.png" : "./images/star-off.png");
+        }
+
+        function createProtocol(parent, protocol) {
+            fetchFile("protocol.html", data => {
+                $(data).appendTo(parent).html(protocol);
+                let target = parent.find(`button:contains('${protocol}')`);
+                target.addClass("active");
+                target.removeClass("btn-outline-dark");
+                target.addClass("btn-outline-warning");
+            });
         }
     </script>
 </body>

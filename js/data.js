@@ -20,6 +20,14 @@ function withReviews(id, callback) {
     getBusiness(id).collection("reviews").get().then(callback);
 }
 
+function getUser(id) {
+    return db.collection("users").doc(id);
+}
+
+function withUserCurrentId(callback) {
+    firebase.auth().onAuthStateChanged(user => callback(user.uid));
+}
+
 function withUserCurrent(callback) {
     firebase.auth().onAuthStateChanged(user => {
         if (user) {
