@@ -10,40 +10,25 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <link type="text/css" rel="stylesheet" href="./css/main.css"/>
+    <style>
+        .protocols {
+            position: relative;
+            right: 16px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container-fluid h-100 p-0">
-        <div class="container-fluid">
-            <div>
-                <div class="row p-4">
-                    <div class="col-sm">
-                        <img id="business-image" class="img-fluid" src="https://dummyimage.com/512/000/fff" />
-                    </div>
-                    <div class="col-sm">
-                        <div class="p-3"></div>
-                        <div id="business-name" class="display-5 p-2 text-center">Business Name</div>
-                        <div class="p-1"></div>
-                        <div id="business-type" class="display-7 p-2 text-center text-muted">Business Type</div>
-                        <div class="p-3"></div>
-                        <div id="business-description" class="text-center">Business Description</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-flex flex-column align-items-center justify-content-center p-4">
-                <div class="display-4">Reviews</div>
-                <div class="p-3"></div>
-                <button type="button" class="btn btn-lg btn-warning">Write Review</button>
-                <div class="p-2"></div>
-            </div>
-            
-            
-
-            <div id="reviews" class="container-fluid">
-            </div> 
-            <div class="p-5"></div>
+    <div class="container">
+        <div id="business"></div>
+        <div class="d-flex flex-column align-items-center justify-content-center p-4">
+            <div class="display-4">Reviews</div>
+            <div class="p-3"></div>
+            <button type="button" class="btn btn-lg btn-warning">Write Review</button>
+            <div class="p-2"></div>
         </div>
+        <div id="reviews" class="container-fluid"></div> 
+        <div class="p-1"></div>
     </div>
 
     <!-- Bundle -->
@@ -82,12 +67,13 @@
                     createReview(review.data().name, 
                         review.data().rating, 
                         review.data().review, 
-                        review.data().time);
+                        review.data().time,
+                        review.data().protocols);
                 });
             });
         });
 
-        function createReview(name, rating, content, time) {
+        function createReview(name, rating, content, time, protocols) {
             fetchFile("review.html", data => {
                 let review = $(data).appendTo("#reviews");
                 review.find(".review-name").html(name);
@@ -102,6 +88,14 @@
                 for (var i = rating; i < 5; i++) {
                     review.find(".review-rating").append(createStar(false));
                 }
+
+                if (protocols == null) {
+                    return;
+                }
+
+                protocols.forEach(protocol => {
+                    createProtocol(review.find(".protocols"), protocol)
+                });
             });
         }
 
@@ -109,6 +103,16 @@
             return createElement("img")
                 .addClass("star")
                 .attr("src", active ? "./images/star-on.png" : "./images/star-off.png");
+        }
+
+        function createProtocol(parent, protocol) {
+            fetchFile("protocol.html", data => {
+                $(data).appendTo(parent).html(protocol);
+                let target = parent.find(`button:contains('${protocol}')`);
+                target.addClass("active");
+                target.removeClass("btn-outline-dark");
+                target.addClass("btn-outline-warning");
+            });
         }
     </script>
 </body>
