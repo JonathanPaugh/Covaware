@@ -1,11 +1,18 @@
-body {
-    margin-bottom: 56px;
-}
+#bottom_nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    background-color: #003566;
+    height: 60px;
+  }
 
-.navbar-bottom {
-    height: 56px;
-}
+  .bottom_nav_icons {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+  }
 
-.navbar-bottom .navbar-text {
-    justify-self: flex-end;
-}
+  .image_icons {
+    width: 40px;
+    height: 40px;
+  }

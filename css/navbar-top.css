@@ -4,7 +4,7 @@ body {
 
 .navbar-top {
     padding: 10px;
-    height: 56px;
+    height: 60px;
 }
 
 .navbar-top .form-control {
@@ -22,3 +22,10 @@ body {
     pointer-events: none;
     color: #aaa;
 }
+
+.topnav {
+    padding: 10px;
+    width: auto;
+    height: 60px;
+    background-color: #003566;
+  }
