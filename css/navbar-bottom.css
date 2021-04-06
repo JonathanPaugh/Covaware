@@ -1,0 +1,11 @@
+body {
+    margin-bottom: 56px;
+}
+
+.navbar-bottom {
+    height: 56px;
+}
+
+.navbar-bottom .navbar-text {
+    justify-self: flex-end;
+}

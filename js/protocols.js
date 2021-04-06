@@ -1,0 +1,1 @@
+const protocols = Object.freeze([ "Masks", "Sanitization", "Logistics", "Distancing", "Barriers" ]);
