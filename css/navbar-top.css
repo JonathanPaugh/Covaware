@@ -1,24 +1,19 @@
 body {
-    margin-top: 56px;
+    margin-top: 60px;
 }
 
 .navbar-top {
     padding: 10px;
-    height: 56px;
+    height: 60px;
 }
 
-.navbar-top .form-control {
-    padding-left: 2.375rem;
+.fa-search {
+    color: white;
 }
 
-.navbar-top .form-control-feedback {
-    position: absolute;
-    z-index: 2;
-    display: block;
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    pointer-events: none;
-    color: #aaa;
-}
+.topnav {
+    padding: 10px;
+    width: auto;
+    height: 60px;
+    background-color: #003566;
+  }
