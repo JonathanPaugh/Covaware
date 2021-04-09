@@ -10,7 +10,7 @@ This browser based web application targeting people concenred about COVID-19 tha
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
-* JavaScript
+* JavaScript, jQuery
 * Bootstrap
 * ...
 
