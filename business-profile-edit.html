@@ -136,6 +136,7 @@
             loadProfile();
         });
 
+        // Displays business profile.
         function loadProfile() {
             db.collection("owner").get()
                 .then(function (snap) {
@@ -151,6 +152,7 @@
                 });
         }
 
+        // Writes edited information to Firestore.
         function saveProfile() {
             db.collection("owner").doc().set({
                 name: $(".edit-name").val(),

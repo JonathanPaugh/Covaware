@@ -70,7 +70,7 @@
     <script src="./js/data.js"></script>
 
     <script>
-
+        // Parse URL and get id.
         const parsedUrl = new URL(window.location.href);
         const id = parsedUrl.searchParams.get("id")
 
@@ -89,8 +89,8 @@
             }
             displayReview();
 
+            // When submit, sends the input data to Firestore.
             document.getElementById('replyingForm').addEventListener('submit', formSubmit);
-
 
             function formSubmit(e) {
                 e.preventDefault();
@@ -110,6 +110,7 @@
 
         });
 
+        // Displays reviews.
         function createReview(name, rating, content, time, protocols) {
             fetchFile("review.html", data => {
                 let review = $(data).appendTo("#reviews");
@@ -137,12 +138,14 @@
             });
         }
 
+        // Displays stars.
         function createStar(active) {
             return createElement("img")
                 .addClass("star")
                 .attr("src", active ? "./images/star-on.png" : "./images/star-off.png");
         }
 
+        //Displays protocol.
         function createProtocol(parent, protocol) {
             fetchFile("protocol.html", data => {
                 $(data).appendTo(parent).html(protocol);

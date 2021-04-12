@@ -11,26 +11,9 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <style>
-
         a {
             text-decoration: none;
             color: black;
-        }
-
-        .image_icons {
-            width: 40px;
-            height: 40px;
-        }
-
-        body {
-            margin-top: 60px;
-        }
-
-        .topnav {
-            padding: 10px;
-            width: auto;
-            height: 60px;
-            background-color: #003566;
         }
 
         .profile-image {
@@ -78,13 +61,7 @@
             <span class="profile-icons">
                 <a href="reviews-as-onwer.html" role="button">
                     <img class="profile-icon" src="images/review.png" alt="My Reviews">
-                    <div>Reviews</div>
-                </a>
-            </span>
-            <span class="profile-icons">
-                <a href="business-profile-edit.html" role="button">
-                    <img class="profile-icon" src="images/bookmark.png" alt="My Bookmarks">
-                    <div>Edit Business</div>
+                    <div>MyBusiness Reviews</div>
                 </a>
             </span>
         </div>
@@ -92,9 +69,8 @@
         <div class="m-5"></div>
 
         <div class="list-group list-group-flush text-center">
-            <a href="#" class="list-group-item list-group-item-action">Edit MyProfile</a>
+            <a href="business-profile-edit.html" class="list-group-item list-group-item-action">Edit MyBusiness</a>
             <a href="#" class="list-group-item list-group-item-action">View MyActivity</a>
-            <a href="#" class="list-group-item list-group-item-action">Manage MyBusiness</a>
             <a href="#" class="list-group-item list-group-item-action">Settings</a>
             <a href="#" class="list-group-item list-group-item-action">Support</a>
         </div>
@@ -143,6 +119,7 @@
             loadProfile();
         });
 
+        // Displays profile for the business profile.
         function loadProfile() {
             db.collection("owner").get()
                 .then(function (snap) {
@@ -155,6 +132,7 @@
                 });
         }
 
+        // Logout function.
         function logout() {
             firebase.auth().signOut().then(() => {
                 redirect("main.html");
