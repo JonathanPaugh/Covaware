@@ -1,18 +1,19 @@
-#bottom_nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    background-color: #003566;
-    height: 60px;
-  }
+body {
+  margin-bottom: 60px;
+}
 
-  .bottom_nav_icons {
-    margin-left: auto;
-    margin-right: auto;
-    width: 40%;
-  }
+.bottomnav {
+  height: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: #003566;
+  text-align: center;
+}
 
-  .image_icons {
-    width: 40px;
-    height: 40px;
-  }
+.bottomnav a {
+  color: white;
+}
+
+.bottomnav a:hover {
+  color: var(--secondary);
+}

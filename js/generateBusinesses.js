@@ -64,7 +64,7 @@ function generateBusinesses() {
             "<p class='precautions'>" + precautionsString.charAt(0).toUpperCase() + precautionsString.slice(1, -2) + "</p>" +
             "<p class='card-text'>" + address + "</br>" + city + "</br>" + province + "</p>" +
             "<span class='card-text'><small class='text-muted'>Review posted __hours ago</small></span>" +
-            "<button id='" + id + "' type='button' class='btn btn-primary'>See more</button>" +
+            "<button id='" + id + "' type='button' class='btn btn-warning'>See more</button>" +
             "</div></div></div></div>";
 
             let element = $(htmlString).appendTo("#card-goes-here");

@@ -6,24 +6,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- Styles -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
   <style>
-    #carouselExampleCaptions {
-      min-width: 280px;
-    }
-    
-    a {
-      text-decoration: none;
-      color: black;
-    }
-
     #iconsgrid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
     }
 
     .icons {
@@ -31,17 +20,35 @@
       margin: 10px;
     }
 
-    .icontext {
-      font-size: 8pt;
+    #iconsgrid a {
+      color: var(--dark) !important;
     }
 
-    .iconimages {
-      width: 3rem;
-      padding: 7px;
+    #iconsgrid a:hover {
+      color: var(--accent) !important;
+    }
+
+    .icontext {
+      padding-top: 1em;
+      font-size: 16pt;
     }
 
     .carousel img {
-      max-height: 65vh;
+      max-height: 45vh;
+    }
+
+    @media only screen and (max-width: 768px) {
+      #iconsgrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      #iconsgrid {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -92,37 +99,37 @@
     </button>
   </div>
   <br>
-  <div class="text-center" id="iconsgrid" >
-    <a href="./businesses.html" class="icons" style="grid-column: 1; grid-row: 1;">
-      <img src="images/restaurant.png" class="iconimages" alt="restaurant">
+  <div class="text-center" id="iconsgrid">
+    <a href="./businesses.html" class="icons">
+      <i class="fa fa-search fa-5x"></i>
       <p class="icontext">Restaurants</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 2; grid-row: 1;">
-      <img src="images/hotel.png" class="iconimages" alt="hotel">
+    <a href="./businesses.html" class="icons">
+      <i class="fa fa-hotel fa-5x"></i>
       <p class="icontext">Hotels</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 3; grid-row: 1;">
-      <img src="images/gym.png" class="iconimages" alt="gym">
+    <a href="./businesses.html" class="icons">
+      <i class="fas fa-dumbbell fa-5x"></i>
       <p class="icontext">Gyms</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 4; grid-row: 1;">
-      <img src="images/bar.png" class="iconimages" alt="bar">
+    <a href="./businesses.html" class="icons">
+      <i class="fa fa-glass-cheers fa-5x"></i>
       <p class="icontext">Bars</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 1; grid-row: 2;">
-      <img src="images/cafe.png" class="iconimages" alt="cafe">
+    <a href="./businesses.html" class="icons">
+      <i class="fas fa-coffee fa-5x"></i>
       <p class="icontext">Cafe</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 2; grid-row: 2;">
-      <img src="images/hairsalon.png" class="iconimages" alt="hohairsalontel">
+    <a href="./businesses.html" class="icons">
+      <i class="fas fa-store-alt fa-5x"></i>
       <p class="icontext">Hair salons</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 3; grid-row: 2;">
-      <img src="images/gasstation.png" class="iconimages" alt="gasstation">
+    <a href="./businesses.html" class="icons">
+      <i class="fas fa-gas-pump fa-5x"></i>
       <p class="icontext">Gas stations</p>
     </a>
-    <a href="./businesses.html" class="icons" style="grid-column: 4; grid-row: 2;">
-      <img src="images/more.png" class="iconimages" alt="more">
+    <a href="./businesses.html" class="icons">
+      <i class="fas fa-ellipsis-h fa-5x"></i>
       <p class="icontext">More</p>
     </a>
   </div>

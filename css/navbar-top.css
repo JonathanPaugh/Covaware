@@ -2,18 +2,26 @@ body {
     margin-top: 60px;
 }
 
+.topnav {
+    padding: 10px 0px 10px 0px;
+    height: 60px;
+    background-color: #003566;
+}
 
-.fa-search {
+.topnav button {
     color: white;
 }
 
-.topnav {
-    padding: 10px;
-    width: 100%;
-    height: 60px;
-    background-color: #003566;
-  }
+.topnav button:hover {
+    color: var(--secondary);
+}
 
-.form-control .form-group .has-search {
+.topnav .brand {
+    color: var(--secondary);
+    font-size: 18pt;
+    font-family: 'Cabin', sans-serif;
+}
+
+.topnav .form-control .form-group .has-search {
     height: 50px;
 }

@@ -17,7 +17,7 @@ function withBusinessRating(id, callback) {
 }
 
 function withReviews(id, callback) {
-    getBusiness(id).collection("reviews").get().then(callback);
+    getBusiness(id).collection("reviews").orderBy("time", "desc").get().then(callback);
 }
 
 function getUser(id) {
