@@ -1,20 +1,13 @@
 <nav class="topnav fixed-top">
-    <form id="searchForm" class="form-group has-search" method="POST">
+    <form id="searchForm" class="form-group has-search">
         <div class="input-group">
-            <input list="list" type="text" id="searchValue" class="form-control" placeholder="Search for a business..">
+            <input list="list" type="text" id="searchValue" class="form-control" placeholder="Search for a business...">
             <div class="input-group-append">
                 <button id="search" class="btn" type="button">
                     <i class="fa fa-search"></i>
                 </button>
             </div>
         </div>
-        <datalist id="list">
-            <option value="McDonald's"></option>
-            <option value="Church's Chicken"></option>
-            <option value="Denny's"></option>
-            <option value="Earnest Ice Cream"></option>
-            <option value="House of Tofu Soup"></option>
-            <option value="CoCo Fresh Tea & Juice"></option>
-        </datalist>
+        <datalist id="searchOptions"></datalist>
     </form>
 </nav>
