@@ -11,6 +11,14 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <link type="text/css" rel="stylesheet" href="./css/main.css"/>
     <style>
+        .dropdown-filter .dropdown-item:active {
+            background-color: var(--secondary);
+        }
+
+        .dropdown-filter .active {
+            background-color: var(--secondary);
+        }
+
         .protocols {
             position: relative;
             right: 16px;
@@ -24,10 +32,21 @@
         <div class="d-flex flex-column align-items-center justify-content-center p-4">
             <div class="display-4">Reviews</div>
             <div class="p-3"></div>
-            <button type="button" class="btn btn-lg btn-warning">Write Review</button>
+            <button type="button" class="btn-review btn btn-lg btn-warning">Write Review</button>
             <div class="p-2"></div>
         </div>
-        <div id="reviews" class="container-fluid"></div> 
+
+        <div class="d-flex justify-content-bottom px-4 py-2">
+            <div class="dropdown">
+                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Filter
+                </button>
+                <ul class="dropdown-filter dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                </ul>
+            </div>
+        </div>
+
+        <div id="reviews" class="container"></div> 
         <div class="p-1"></div>
     </div>
 
@@ -54,14 +73,88 @@
 
     <script src="./js/data.js"></script>
     <script src="./js/business.js"></script>
+    <script src="./js/protocols.js"></script>
 
     <script>
-        $(document).ready(() => {
-            $("button").click(() => redirect("reviews-post.html"));
+        var reviews = [];
 
+        $(document).ready(() => {
             let id = getUrl().get("id");
             if (id == null) { console.log("Business not valid"); return; }
 
+            createReviews(id);
+            createDropdown();
+
+            $(".btn-review").click(() => redirect("reviews-post.html"));
+            $(".dropdown-filter a").click(toggleFilter);
+        });
+
+        function toggleFilter(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            let target = $(event.target);
+            target.toggleClass("active");
+            filter();
+        }
+
+        function filter() {
+            let filters = [];
+
+            // Gets all active filters
+            $(".dropdown-filter .active").each((index, element) => {
+                filters.push($(element).html());
+            });
+
+            // Hides all reviews
+            reviews.forEach(review => {
+                review.hide();
+            });
+
+            // Shows all reviews if no filters
+            if (!filters.length){
+                reviews.forEach(review => {
+                    review.show();
+                });
+                return;
+            }
+
+            // Filters reviews
+            reviews.filter(review => {
+                let protocols = [];
+
+                // Gets protocols from review
+                review.find(".protocols").children().each((index, element) => {
+                    protocols.push($(element).html());
+                });
+
+                // If no protocols, exclude this review
+                if (!protocols.length) {
+                    return false;
+                }
+
+                protocols.forEach(protocol => {
+                    console.log(protocol);
+                });
+
+                // If matching protocol does not exist for every filter, exclude this review
+                return filters.every(filter => protocols.includes(filter));
+            }).forEach(review => {
+                review.show();
+            });
+        }
+
+        function checkReview(review, filters) {
+
+        }
+
+        function createDropdown() {
+            protocols.forEach(protocol => {
+                let element = createElement("li").appendTo(".dropdown-filter");
+                createElement("a").appendTo(element).addClass("dropdown-item").attr("href", "#").html(protocol);
+            });
+        }
+
+        function createReviews(id) {
             withReviews(id, reviews => {
                 reviews.docs.forEach(review => {
                     createReview(review.data().name, 
@@ -71,23 +164,20 @@
                         review.data().protocols);
                 });
             });
-        });
+        }
 
         function createReview(name, rating, content, time, protocols) {
             fetchFile("review.html", data => {
                 let review = $(data).appendTo("#reviews");
+                
+                reviews.push(review);
+
                 review.find(".review-name").html(name);
                 review.find(".review-rating").html("");
                 review.find(".review-content").html(content);
                 review.find(".review-time").html(new Date(time).toLocaleString());
 
-                for (var i = 0; i < rating; i++) {
-                    review.find(".review-rating").append(createStar(true));
-                }
-
-                for (var i = rating; i < 5; i++) {
-                    review.find(".review-rating").append(createStar(false));
-                }
+                insertRating(review.find(".review-rating"), rating)
 
                 if (protocols == null) {
                     return;
@@ -96,13 +186,9 @@
                 protocols.forEach(protocol => {
                     createProtocol(review.find(".protocols"), protocol)
                 });
-            });
-        }
 
-        function createStar(active) {
-            return createElement("img")
-                .addClass("star")
-                .attr("src", active ? "./images/star-on.png" : "./images/star-off.png");
+                
+            });
         }
 
         function createProtocol(parent, protocol) {

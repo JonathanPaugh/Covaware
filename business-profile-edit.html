@@ -11,7 +11,7 @@
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
 </head>
 
-<body> 
+<body>
     <div class="container h-100">
         <div class="p-5"></div>
         <div class="row flex-lg-nowrap">
@@ -24,60 +24,61 @@
                                     <div class="row">
                                         <div class="col-12 col-sm-auto mb-3">
                                             <div class="mx-auto" style="width: 140px;">
-                                                <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                <div class="d-flex justify-content-center align-items-center rounded"
+                                                    style="height: 140px; background-color: rgb(233, 236, 239);">
                                                     <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">
-                                                    <img class="profile-image" src="images/user.png" id="profile_picture" alt="Profile Picture">
-                                                </span>
+                                                        <img class="profile-image" src="images/user.png"
+                                                            id="profile_picture" alt="Profile Picture">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                            <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                <h4 class="profile-name pt-sm-2 pb-1 mb-0 text-nowrap">Profile Name</h4>
+                                                <div class="mt-2">
+                                                    <button class="btn btn-warning" type="button">
+                                                        <i class="fa fa-fw fa-camera"></i>
+                                                        <span>Change Photo</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                                        <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                            <h4 class="profile-name pt-sm-2 pb-1 mb-0 text-nowrap">Profile Name</h4>
-                                            <div class="mt-2">
-                                                <button class="btn btn-warning" type="button">
-                                                    <i class="fa fa-fw fa-camera"></i>
-                                                    <span>Change Photo</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <ul class="nav nav-tabs">
-                                    <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
-                                </ul>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+                                    </ul>
                                     <div class="tab-content pt-3">
                                         <div class="tab-pane active">
                                             <form class="form" novalidate="">
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="row">
-                                                            <div class="col">
-                                                                <div class="form-group">
-                                                                    <label>Name</label>
-                                                                    <input class="edit-name form-control" type="text">
-                                                                </div>
+                                                            <div class="form-group">
+                                                                <label>Name</label>
+                                                                <input class="edit-name form-control" type="text">
                                                             </div>
-                                                            <div class="col">
-                                                                <div class="form-group">
-                                                                    <label>Location</label>
-                                                                    <input class="edit-location form-control" type="text">
-                                                                </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="form-group">
+                                                                <label>Address</label>
+                                                                <input class="edit-address form-control" type="text">
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col">
                                                                 <div class="form-group">
-                                                                    <label>Email</label>
-                                                                    <input class="edit-email form-control" type="text">
+                                                                    <label>number</label>
+                                                                    <input class="edit-number form-control" type="text">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col mb-3">
                                                                 <div class="form-group">
-                                                                    <label>About</label>
-                                                                    <textarea class="edit-about form-control" rows="5"></textarea>
+                                                                    <label>Website</label>
+                                                                    <input class="edit-website form-control"
+                                                                        type="text"></input>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -85,7 +86,8 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col d-flex justify-content-end">
-                                                        <button class="edit-submit btn btn-warning" type="button">Save Changes</button>
+                                                        <button class="edit-submit btn btn-warning" type="button">Save
+                                                            Changes</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -104,13 +106,11 @@
 
     <!-- Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
@@ -126,39 +126,44 @@
     <script src="./js/data.js"></script>
 
     <script>
+
         $(document).ready(() => {
             requireLogin();
 
             $(".edit-submit").click(saveProfile);
-            
+
             loadProfile();
         });
 
+        // Displays business profile.
         function loadProfile() {
-            withUserCurrent(user => {
-                $(".profile-name").html(user.data().name);
-                $(".profile-image").attr("src", user.data().image);
-                $(".edit-name").val(user.data().name);
-                $(".edit-location").val(user.data().location);
-                $(".edit-email").val(user.data().email);
-                $(".edit-about").val(user.data().about);
-            });
+            db.collection("owner").get()
+                .then(function (snap) {
+                    snap.forEach(function (doc) {
+                        $(".profile-name").html(doc.data().name);
+                        // $(".profile-image").attr("src", doc.data().image);
+                        $(".edit-name").val(doc.data().name);
+                        $(".edit-address").val(doc.data().address);
+                        $(".edit-number").val(doc.data().number);
+                        $(".edit-website").val(doc.data().website);
+                    });
+
+                });
         }
 
+        // Writes edited information to Firestore.
         function saveProfile() {
-            withUserCurrentId(id => {
-                getUser(id).set({
-                    name: $(".edit-name").val(),
-                    location: $(".edit-location").val(),
-                    email: $(".edit-email").val(),
-                    about: $(".edit-about").val()
-                }).then(() => {
-                    redirect("profile.html");
-                });
+            db.collection("owner").doc().set({
+                name: $(".edit-name").val(),
+                address: $(".edit-address").val(),
+                number: $(".edit-number").val(),
+                website: $(".edit-website").val()
+            }).then(() => {
+                redirect("my-business-as-onwer.html");
             });
         }
     </script>
-    
+
 </body>
 
 </html>

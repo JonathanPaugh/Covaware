@@ -14,8 +14,13 @@ function displayBusiness() {
 
     withBusiness(id, business => {
         $("#business-name").html(business.data().name);
+        $("#business-rating").html("");
         $("#business-type").html(business.data().type);
         $("#business-description").html(business.data().description);
         $("#business-image").attr("src", `./images/${business.data().image}`);
+    });
+
+    withBusinessRating(id, rating => {
+        insertRating($("#business-rating"), rating)
     });
 }

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Reviews - COVID-19 Aware</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Styles -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+
+</head>
+
+<body>
+
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+    <!-- Header Navigation Bar -->
+
+    <div class="container">
+
+        <div class="d-flex flex-column align-items-center justify-content-center p-4">
+            <div class="display-6">Reviews for My Business</div>
+        </div>
+        <div class="d-flex p-2">
+            <div class="btn-group align-items-center">
+                <button style="background-color: #003556" class="btn btn-secondary dropdown-toggle" type="button"
+                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                    Sort by
+                </button>
+                <ul style="background-color: #003556;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a style="color: white;" id="high-to-low" class="dropdown-item" href="#">Rate:
+                            High to Low</a>
+                    </li>
+                    <li><a style="color: white;" id="low-to-high" class="dropdown-item" href="#">Rate: Low to High</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="reviews" class="container-fluid"></div>
+        <div class="p-1"></div>
+    </div>
+
+
+
+    <!-- Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
+    <script src="./js/firebase.js"></script>
+    <script src="./js/general.js"></script>
+    <script src="./js/init.js"></script>
+
+
+    <!-- Scripts -->
+
+    <script src="./js/data.js"></script>
+
+    <script>
+        $(document).ready(() => {
+            withReviews("test", reviews => {
+                reviews.docs.forEach(review => {
+                    createReview(
+                        review.id,
+                        review.data().name,
+                        review.data().rating,
+                        review.data().review,
+                        review.data().time,
+                        review.data().protocols,
+                        review.data().reply
+                    );
+                });
+            });
+        });
+
+        // Displays reviews so the business onwers can see reviews and reply.
+        function createReview(docID, name, rating, content, time, protocols, reply) {
+            fetchFile("review.html", data => {
+                let review = $(data).appendTo("#reviews");
+                let replyBotton = ("<a class='reply-button btn' href='reply-reviews-as-owner.html?id=" + docID+ "'>Reply</a>");
+                let ownersReplyTitle = ("<br><br><br><p id='owners-reply-title'><b>Owner's Reply</b></p>");
+                let ownersReplyContent = ("<p id='owners-reply-content'>Not replied yet</p>");
+                $(".reply-button").css({ "background-color": "#003556", "color": "white", "float": "right" });
+
+                review.find(".review-name").html(name);
+                review.find(".review-rating").html("");
+                review.find(".review-content").html(content);
+                review.find(".review-time").html(new Date(time).toLocaleString());
+                review.find(".review-time").append(replyBotton);
+                review.find(".review-time").append(ownersReplyTitle);
+                review.find("#owners-reply-title").append(ownersReplyContent);
+                review.find("#owners-reply-content").html(reply);
+
+                for (var i = 0; i < rating; i++) {
+                    review.find(".review-rating").append(createStar(true));
+                }
+
+                for (var i = rating; i < 5; i++) {
+                    review.find(".review-rating").append(createStar(false));
+                }
+
+                if (protocols == null) {
+                    return;
+                }
+
+                protocols.forEach(protocol => {
+                    createProtocol(review.find(".protocols"), protocol)
+                })
+            })
+        }
+
+        // Displays stars on the page.
+        function createStar(active) {
+            return createElement("img")
+                .addClass("star")
+                .attr("src", active ? "./images/star-on.png" : "./images/star-off.png");
+        }
+
+        // Displays protocol on the page.
+        function createProtocol(parent, protocol) {
+            fetchFile("protocol.html", data => {
+                $(data).appendTo(parent).html(protocol);
+                let target = parent.find(`button:contains('${protocol}')`);
+                target.addClass("active");
+                target.removeClass("btn-outline-dark");
+                target.addClass("btn-outline-warning");
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>

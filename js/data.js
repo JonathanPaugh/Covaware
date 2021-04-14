@@ -1,13 +1,3 @@
-function getUrl() {
-    return new URLSearchParams(window.location.search);
-}
-
-function fetchFile(path, callback) {
-    fetch(`${window.location.origin}/${path}`)
-        .then(response => response.text())
-        .then(callback);
-}
-
 function getBusiness(id) {
     return db.collection("businesses").doc(id);
 }
@@ -16,8 +6,18 @@ function withBusiness(id, callback) {
     getBusiness(id).get().then(callback);
 }
 
+function withBusinessRating(id, callback) {
+    withReviews(id, reviews => {
+        let sum = 0;
+        reviews.docs.forEach(review => {
+            sum += review.data().rating;
+        });
+        callback(Math.round(sum / reviews.docs.length));
+    });
+}
+
 function withReviews(id, callback) {
-    getBusiness(id).collection("reviews").get().then(callback);
+    getBusiness(id).collection("reviews").orderBy("time", "desc").get().then(callback);
 }
 
 function getUser(id) {

@@ -6,19 +6,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Styles -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
     <style>
-
         body {
             margin-top: 56px;
         }
+
         a {
             text-decoration: none;
             color: black;
         }
+
         .topnav {
             padding: 10px;
             width: auto;
@@ -71,27 +71,33 @@
                     <h2 class="accordion-header" id="flush-headingOne">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                            COVID-19 Restrictions
+                            COVID-19 News
                         </button>
                     </h2>
                     <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                         data-bs-parent="#accordionFlushExample">
-                        <a href="main.html">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
-                                body.
+                        <a href="https://news.gov.bc.ca/releases/2021PREM0021-000504">
+                            <div class="accordion-body">
+                                <b>
+                                    <p id="news1-title"></p>
+                                </b>
+                                <p id="news1-content"></p>
                             </div>
                         </a>
-                        <a href="main.html">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
-                                body.
+                        <a href="https://news.gov.bc.ca/releases/2021FLNRO0020-000549">
+                            <div class="accordion-body">
+                                <b>
+                                    <p id="news2-title"></p>
+                                </b>
+                                <p id="news2-content"></p>
                             </div>
                         </a>
-                        <a href="main.html">
-                            <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                                demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion
-                                body.
+                        <a href="https://news.gov.bc.ca/releases/2021PSSG0031-000540">
+                            <div class="accordion-body">
+                                <b>
+                                    <p id="news3-title"></p>
+                                </b>
+                                <p id="news3-content"></p>
                             </div>
                         </a>
                     </div>
@@ -100,31 +106,47 @@
                     <h2 class="accordion-header" id="flush-headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                            Accordion Item #2
+                            COVID-19 Restrictions
                         </button>
                     </h2>
                     <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
                         data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                            demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion
-                            body. Let's imagine this being filled with some actual content.</div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="flush-headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseThree" aria-expanded="false"
-                            aria-controls="flush-collapseThree">
-                            Accordion Item #3
-                        </button>
-                    </h2>
-                    <div id="flush-collapseThree" class="accordion-collapse collapse"
-                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">Placeholder content for this accordion, which is intended to
-                            demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion
-                            body. Nothing more exciting happening here in terms of content, but just filling up the
-                            space to make it look, at least at first glance, a bit more representative of how this would
-                            look in a real-world application.</div>
+                        <div class="accordion-body">
+                            <b>
+                                <p id="gatheringsT"></p>
+                            </b>
+                            <p id="gatheringsC"></p>
+                        </div>
+                        <div class="accordion-body">
+                            <b>
+                                <p id="coreBubbleT"></p>
+                            </b>
+                            <p id="coreBubbleC"></p>
+                        </div>
+                        <div class="accordion-body">
+                            <b>
+                                <p id="parentingT"></p>
+                            </b>
+                            <p id="parentingC"></p>
+                        </div>
+                        <div class="accordion-body">
+                            <b>
+                                <p id="studentsT"></p>
+                            </b>
+                            <p id="studentsC"></p>
+                        </div>
+                        <div class="accordion-body">
+                            <b>
+                                <p id="supportingT"></p>
+                            </b>
+                            <p id="supportingC"></p>
+                        </div>
+                        <div class="accordion-body">
+                            <b>
+                                <p id="visitingT"></p>
+                            </b>
+                            <p id="visitingC"></p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,13 +155,11 @@
 
     <!-- Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" 
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
@@ -151,6 +171,62 @@
     <script src="./js/init.js"></script>
 
     <!-- Scripts -->
+
+    <script>
+        function readRestrictions() {
+    db.collection("restrictions").doc("gatherings")
+        .onSnapshot(function (c) {
+            document.getElementById("gatheringsT").innerText = c.data().title;
+            document.getElementById("gatheringsC").innerText = c.data().content;
+        })
+
+    db.collection("restrictions").doc("coreBubble")
+        .onSnapshot(function (c) {
+            document.getElementById("coreBubbleT").innerText = c.data().title;
+            document.getElementById("coreBubbleC").innerText = c.data().content;
+        })
+    db.collection("restrictions").doc("parenting")
+        .onSnapshot(function (c) {
+            document.getElementById("parentingT").innerText = c.data().title;
+            document.getElementById("parentingC").innerText = c.data().content;
+        })
+    db.collection("restrictions").doc("students")
+        .onSnapshot(function (c) {
+            document.getElementById("studentsT").innerText = c.data().title;
+            document.getElementById("studentsC").innerText = c.data().content;
+        })
+    db.collection("restrictions").doc("supporting")
+        .onSnapshot(function (c) {
+            document.getElementById("supportingT").innerText = c.data().title;
+            document.getElementById("supportingC").innerText = c.data().content;
+        })
+    db.collection("restrictions").doc("visiting")
+        .onSnapshot(function (c) {
+            document.getElementById("visitingT").innerText = c.data().title;
+            document.getElementById("visitingC").innerText = c.data().content;
+        })
+}
+readRestrictions();
+
+function readNews() {
+    db.collection("news").doc("news1")
+        .onSnapshot(function (func) {
+            document.getElementById("news1-title").innerText = func.data().title;
+            document.getElementById("news1-content").innerText = func.data().content;
+        })
+    db.collection("news").doc("news2")
+        .onSnapshot(function (func) {
+            document.getElementById("news2-title").innerText = func.data().title;
+            document.getElementById("news2-content").innerText = func.data().content;
+        })
+    db.collection("news").doc("news3")
+        .onSnapshot(function (func) {
+            document.getElementById("news3-title").innerText = func.data().title;
+            document.getElementById("news3-content").innerText = func.data().content;
+        })
+}
+readNews();
+    </script>
 
 </body>
 

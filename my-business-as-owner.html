@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Reviews - COVID-19 Aware</title>
+
+    <!-- Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
+    <style>
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .profile-image {
+            width: 300px;
+            height: 200px;
+
+            margin-top: 30px;
+        }
+
+        .profile-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .profile-icons {
+            display: inline-block;
+            margin: 24px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-------------------------------------->
+    <!-- The following is HTML for layout -->
+    <!-------------------------------------->
+    <!-- Header Navigation Bar -->
+
+    <div class="container">
+        <div class="text-center">
+            <a href="#"><img class="profile-image" src="images/user.png" alt="Profile Picture"></a>
+        </div>
+
+        <div class="m-5"></div>
+
+        <div>
+            <h3 class="profile-name text-center">Business name</h3>
+            <p class="profile-location text-center">Profile Location</p>
+        </div>
+
+        <div class="m-5"></div>
+
+        <div class="text-center">
+            <span class="profile-icons">
+                <a href="reviews-as-owner.html" role="button">
+                    <img class="profile-icon" src="images/review.png" alt="My Reviews">
+                    <div>MyBusiness Reviews</div>
+                </a>
+            </span>
+        </div>
+
+        <div class="m-5"></div>
+
+        <div class="list-group list-group-flush text-center">
+            <a href="business-profile-edit.html" class="list-group-item list-group-item-action">Edit MyBusiness</a>
+            <a href="#" class="list-group-item list-group-item-action">View MyActivity</a>
+            <a href="#" class="list-group-item list-group-item-action">Settings</a>
+            <a href="#" class="list-group-item list-group-item-action">Support</a>
+        </div>
+
+        <div class="m-5"></div>
+
+        <div class="d-flex justify-content-center">
+            <button type="button" class="logout btn btn-lg btn-block btn-secondary">
+                <i class="fa fa-sign-out"></i>
+                <span>Logout</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Bottom nav bar template -->
+
+    <!-- Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous">
+        </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.js"></script>
+
+    <script src="./js/firebase.js"></script>
+    <script src="./js/general.js"></script>
+    <script src="./js/init.js"></script>
+
+    <!--------------------------------------------------------------------->
+    <!-- JS files: Your own JavaScript functions included here    -->
+    <!--------------------------------------------------------------------->
+
+    <script>
+
+        $(document).ready(() => {
+            requireLogin();
+
+            $(".logout").click(logout);
+
+            loadProfile();
+        });
+
+        // Displays profile for the business profile.
+        function loadProfile() {
+            db.collection("owner").get()
+                .then(function (snap) {
+                    snap.forEach(function (doc) {
+                        $(".profile-name").html(doc.data().name);
+                        $(".profile-location").html(doc.data().address);
+                        $(".profile-image").attr("src", doc.data().image);
+                    });
+
+                });
+        }
+
+        // Logout function.
+        function logout() {
+            firebase.auth().signOut().then(() => {
+                redirect("main.html");
+            });
+        }
+
+    </script>
+
+</body>
+
+</html>
