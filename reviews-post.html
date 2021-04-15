@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-    <link type="text/css" rel="stylesheet" href="./css/main.css"/>
 </head>
 
 <body>
@@ -18,7 +17,7 @@
         <div class="d-flex flex-column align-items-center justify-content-center p-3">
             <div class="display-4">Review</div>
             <div class="p-1"></div>
-            <div class="d-flex flex-row">
+            <div class="rating-stars d-flex flex-row">
                 <img class="star img-fluid" src="./images/star-off.png">
                 <img class="star img-fluid" src="./images/star-off.png">
                 <img class="star img-fluid" src="./images/star-off.png">
@@ -76,12 +75,12 @@
             requireLogin();
             createProtocols();
             $("button").click(postReview);
-            $(".star").click(setRating);
-            $(".star").hover(hoverStart, hoverStop);
+            $(".rating-stars .star").click(setRating);
+            $(".rating-stars .star").hover(hoverStart, hoverStop);
         });
 
         function hoverStart(event) {
-            let index = $(event.target).index(".star");
+            let index = $(event.target).index(".rating-stars .star");
             setStars(index + 1);
         }
 
@@ -89,18 +88,23 @@
             setStars(rating);
         }
 
+        // Sets active stars to value given
         function setStars(value) {
-            $(".star").attr("src", "./images/star-off.png");
+            $(".rating-stars .star").attr("src", "./images/star-off.png");
             for (var i = 0; i < value; i++) {
-                $(".star").eq(i).attr("src", "./images/star-on.png");
+
+                // Activates stars based on value given (0-value)
+                $(".rating-stars .star").eq(i).attr("src", "./images/star-on.png");
             }
         }
 
-        function setRating() {
-            let index = $(event.target).index(".star");
+        // Sets the rating to clicked star value
+        function setRating(event) {
+            let index = $(event.target).index(".rating-stars .star");
             rating = index + 1;
         }
 
+        // Sends review to database and redirects to reviews page
         function postReview() 
         {
             let id = getUrl().get("id");
@@ -118,6 +122,7 @@
             });
         }
 
+        // Creates a protocol tag for each protocol
         function createProtocols() {
             fetchFile("protocol.html", data => {
                 protocols.forEach(protocol => {
@@ -129,12 +134,17 @@
 
         function toggleProtocol(event) {
             event.preventDefault();
+            
             let target = $(event.target);
+
+            // Activate protocol
             if (!target.hasClass("active")) {
                 target.addClass("active");
                 target.removeClass("btn-outline-dark");
                 target.addClass("btn-outline-warning");
                 selectedProtocols.push(target.html());
+
+            // Deactivate protocol
             } else {
                 target.removeClass("active");
                 target.addClass("btn-outline-dark");

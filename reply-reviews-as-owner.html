@@ -36,8 +36,8 @@
                         <option value="Thank you for your review. Stay safe!">
                     </datalist>
                     <br>
-                    <button id="postReply" style="background-color: #003566; color: white;" type="submit"
-                        class="btn btn-primary" sendMessage()>Post</button>
+                    <button id="postReply" type="submit"
+                        class="btn btn-warning">Post</button>
                 </form>
 
             </div>
@@ -103,7 +103,7 @@
                     reply: content
                 }, { merge: true })
                     .then(function (func) {
-                       window.location.href = "reviews-as-onwer.html?id=" + id;
+                       window.location.href = "reviews-as-owner.html?id=" + id;
                     })
             }
 

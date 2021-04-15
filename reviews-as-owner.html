@@ -26,19 +26,13 @@
         <div class="d-flex flex-column align-items-center justify-content-center p-4">
             <div class="display-6">Reviews for My Business</div>
         </div>
-        <div class="d-flex p-2">
-            <div class="btn-group align-items-center">
-                <button style="background-color: #003556" class="btn btn-secondary dropdown-toggle" type="button"
-                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Sort by
-                </button>
+        <div class="d-flex justify-content-bottom px-2 py-2">
+            <div class="dropdown px-2">
+                <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
                 <ul style="background-color: #003556;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a style="color: white;" id="high-to-low" class="dropdown-item" type="button">Rate:
-                            High to Low</a>
-                    </li>
-                    <li><a style="color: white;" id="low-to-high" class="dropdown-item" type="button">Rate: Low to
-                            High</a>
-                    </li>
+                    <li><a style="color: white;" id="high-to-low" class="dropdown-item" type="button">Rate: High to Low</a></li>
+                    <li><a style="color: white;" id="low-to-high" class="dropdown-item" type="button">Rate: Low to High</a></li>
                 </ul>
             </div>
         </div>
@@ -47,10 +41,11 @@
         <div class="p-1"></div>
     </div>
 
-    
+
     <!-- Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+        crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
@@ -64,6 +59,8 @@
 
     <!-- Scripts -->
     <script src="./js/data.js"></script>
+    <script src="./js/protocols.js"></script>
+
     <script>
         const parsedUrl = new URL(window.location.href);
         var id = parsedUrl.searchParams.get("id");
@@ -71,6 +68,7 @@
         $(document).ready(() => {
             // Returns review ordered by date if there is no click event.
             if (id == null) {
+                createFilters();
                 withReviews("test", reviews => {
                     reviews.docs.forEach(review => {
                         createReview(
@@ -88,6 +86,7 @@
 
             // Returns review ordered by rating, high to low, if the dropdown menu has selected.
             if (id == "high-to-low") {
+                createFilters();
                 var reviews = db.collection("businesses").doc("test").collection("reviews");
                 reviews.orderBy("rating", "desc").get()
                     .then(function (reviews) {
@@ -108,6 +107,7 @@
 
             // Returns review ordered by rating, low to high, if the dropdown menu has selected.
             if (id == "low-to-high") {
+                createFilters();
                 var reviews = db.collection("businesses").doc("test").collection("reviews");
                 reviews.orderBy("rating").get()
                     .then(function (reviews) {
@@ -149,17 +149,17 @@
         function createReview(docID, name, rating, content, time, protocols, reply) {
             fetchFile("review.html", data => {
                 let review = $(data).appendTo("#reviews");
-                let replyBotton = ("<a class='reply-button btn' href='reply-reviews-as-owner.html?id=" + docID + "'>Reply</a>");
-                let ownersReplyTitle = ("<br><br><br><p id='owners-reply-title'><b>Owner's Reply</b></p>");
+                let replyBotton = ("<a class='reply-button btn btn-warning' href='reply-reviews-as-owner.html?id=" + docID + "'>Reply</a>");
+                let ownersReplyTitle = ("<br><p id='owners-reply-title'><b>Owner's Reply</b></p>");
                 let ownersReplyContent = ("<p id='owners-reply-content'>Not replied yet</p>");
-                $(".reply-button").css({ "background-color": "#003556", "color": "white", "float": "right" });
+                $(".reply-button").css({ "position": "relative", "bottom": "48px", "float": "right" });
 
                 review.find(".review-rating").html("");
                 review.find(".review-name").html(name);
                 review.find(".review-content").html(content);
                 review.find(".review-time").html(new Date(time).toLocaleString());
-                review.find(".review-time").append(replyBotton);
-                review.find(".review-time").append(ownersReplyTitle);
+                review.find(".card-body").append(ownersReplyTitle);
+                review.find(".card-body").append(replyBotton);
                 review.find("#owners-reply-title").append(ownersReplyContent);
                 review.find("#owners-reply-content").html(reply);
 
@@ -198,6 +198,14 @@
                 target.addClass("btn-outline-warning");
             });
         }
+
+        function createFilters() {
+            protocols.forEach(protocol => {
+                let element = createElement("li").appendTo(".dropdown-filter");
+                createElement("a").appendTo(element).addClass("dropdown-item").attr("href", "#").html(protocol);
+            });
+        }
     </script>
 </body>
+
 </html>
