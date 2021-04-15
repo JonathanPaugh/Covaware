@@ -106,22 +106,28 @@
             $(".dropdown-sort .active").removeClass("active");
             target.addClass("active");
 
+            // Stores reviews in sorted order
             let reviewsTemp = reviews.sort((a, b) => {
                 switch(target.attr("id")) {
                     case "new-to-old":
-                        return parseInt(b.find(".review-time").attr("value")) - parseInt(a.find(".review-time").attr("value"));
+                        return parseInt(b.find(".review-time").attr("value")) 
+                            - parseInt(a.find(".review-time").attr("value"));
 
                     case "old-to-new":
-                        return parseInt(a.find(".review-time").attr("value")) - parseInt(b.find(".review-time").attr("value"));
+                        return parseInt(a.find(".review-time").attr("value")) 
+                            - parseInt(b.find(".review-time").attr("value"));
                         
                     case "high-to-low":
-                        return parseInt(b.find(".review-rating").attr("value")) - parseInt(a.find(".review-rating").attr("value"));
+                        return parseInt(b.find(".review-rating").attr("value")) 
+                            - parseInt(a.find(".review-rating").attr("value"));
 
                     case "low-to-high":
-                        return parseInt(a.find(".review-rating").attr("value")) - parseInt(b.find(".review-rating").attr("value"));
+                        return parseInt(a.find(".review-rating").attr("value")) 
+                            - parseInt(b.find(".review-rating").attr("value"));
                 }
             });
 
+            // Appends reviews in sorted order
             reviewsTemp.forEach(review => {
                 $("#reviews").append(review);
             });

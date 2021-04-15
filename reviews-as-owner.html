@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Reviews - COVID-19 Aware</title>
+    <title>My Business Reviews</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Styles -->
@@ -70,7 +70,6 @@
         $(document).ready(() => {
             // Returns review ordered by date if there is no click event.
             if (id == null || id == "newest-to-oldest") {
-                createFilters();
                 withReviews("test", reviews => {
                     reviews.docs.forEach(review => {
                         createReview(
@@ -87,7 +86,6 @@
             }
 
             if (id == "oldest-to-newest") {
-                createFilters();
                 var reviews = db.collection("businesses").doc("test").collection("reviews");
                 reviews.orderBy("time").get()
                     .then(function (reviews) {
@@ -107,7 +105,6 @@
 
             // Returns review ordered by rating, high to low, if the dropdown menu has selected.
             if (id == "high-to-low") {
-                createFilters();
                 var reviews = db.collection("businesses").doc("test").collection("reviews");
                 reviews.orderBy("rating", "desc").get()
                     .then(function (reviews) {
@@ -127,7 +124,6 @@
 
             // Returns review ordered by rating, low to high, if the dropdown menu has selected.
             if (id == "low-to-high") {
-                createFilters();
                 var reviews = db.collection("businesses").doc("test").collection("reviews");
                 reviews.orderBy("rating").get()
                     .then(function (reviews) {
@@ -233,13 +229,6 @@
                 target.addClass("active");
                 target.removeClass("btn-outline-dark");
                 target.addClass("btn-outline-warning");
-            });
-        }
-
-        function createFilters() {
-            protocols.forEach(protocol => {
-                let element = createElement("li").appendTo(".dropdown-filter");
-                createElement("a").appendTo(element).addClass("dropdown-item").attr("href", "#").html(protocol);
             });
         }
     </script>
