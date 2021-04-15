@@ -30,9 +30,11 @@
             <div class="dropdown px-2">
                 <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-bs-toggle="dropdown" aria-expanded="false">Sort</button>
-                <ul style="background-color: #003556;" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a style="color: white;" id="high-to-low" class="dropdown-item" type="button">Rate: High to Low</a></li>
-                    <li><a style="color: white;" id="low-to-high" class="dropdown-item" type="button">Rate: Low to High</a></li>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a id="newest-to-oldest" class="dropdown-item" type="button">Time: Newest to Oldest</a></li>
+                    <li><a id="oldest-to-newest" class="dropdown-item" type="button">Time: Oldest to Newest</a></li>
+                    <li><a id="high-to-low" class="dropdown-item" type="button">Rating: High to Low</a></li>
+                    <li><a id="low-to-high" class="dropdown-item" type="button">Rating: Low to High</a></li>
                 </ul>
             </div>
         </div>
@@ -67,7 +69,7 @@
 
         $(document).ready(() => {
             // Returns review ordered by date if there is no click event.
-            if (id == null) {
+            if (id == null || id == "newest-to-oldest") {
                 createFilters();
                 withReviews("test", reviews => {
                     reviews.docs.forEach(review => {
@@ -84,6 +86,25 @@
                 });
             }
 
+            if (id == "oldest-to-newest") {
+                createFilters();
+                var reviews = db.collection("businesses").doc("test").collection("reviews");
+                reviews.orderBy("time").get()
+                    .then(function (reviews) {
+                        reviews.docs.forEach(review => {
+                            createReview(
+                                review.id,
+                                review.data().name,
+                                review.data().rating,
+                                review.data().review,
+                                review.data().time,
+                                review.data().protocols,
+                                review.data().reply
+                            );
+                        });
+                    });
+            }
+
             // Returns review ordered by rating, high to low, if the dropdown menu has selected.
             if (id == "high-to-low") {
                 createFilters();
@@ -91,7 +112,6 @@
                 reviews.orderBy("rating", "desc").get()
                     .then(function (reviews) {
                         reviews.docs.forEach(review => {
-                            console.log(review.data().rating)
                             createReview(
                                 review.id,
                                 review.data().name,
@@ -112,7 +132,6 @@
                 reviews.orderBy("rating").get()
                     .then(function (reviews) {
                         reviews.docs.forEach(review => {
-                            console.log(review.data().rating)
                             createReview(
                                 review.id,
                                 review.data().name,
@@ -126,6 +145,24 @@
                     });
             }
         });
+
+        // Listen click event and direct to the page that will show the sorting result, newest to oldest time.
+        function orderNewestToOldest() {
+            var lowToHigh = document.getElementById("newest-to-oldest");
+            lowToHigh.addEventListener('click', function () {
+                window.location.href = "reviews-as-owner.html?id=newest-to-oldest";
+            });
+        }
+        orderNewestToOldest();
+
+        // Listen click event and direct to the page that will show the sorting result, oldest to newest time.
+        function orderOldestToNewest() {
+            var lowToHigh = document.getElementById("oldest-to-newest");
+            lowToHigh.addEventListener('click', function () {
+                window.location.href = "reviews-as-owner.html?id=oldest-to-newest";
+            });
+        }
+        orderOldestToNewest();
 
         // Listen click event and direct to the page that will show the sorting result, high to low rating.
         function orderHighToLow() {
