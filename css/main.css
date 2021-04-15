@@ -18,3 +18,11 @@ a:hover {
     width: 32px;
     height: 32px;
 }
+
+.dropdown .dropdown-item:active {
+    background-color: var(--secondary);
+}
+
+.dropdown .active {
+    background-color: var(--secondary);
+}

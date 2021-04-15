@@ -1,5 +1,6 @@
 $(document).ready(displayBusiness);
 
+// Displays business from template in the business container using business id from URL
 function displayBusiness() {
     if (!$("#business").length) {
         return;
