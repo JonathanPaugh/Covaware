@@ -3,17 +3,34 @@ $(document).ready(() => {
 });
 
 function generateBusinesses() {
-  db.collection("businesses")
+  db.collection("businesses").orderBy("name")
     .get()
     .then(function (snap) {
       snap.forEach(function (doc) {
         let id = doc.id;
         let name = doc.data().name;
         let image = doc.data().image;
-        let address = doc.data().address;
-        let city = doc.data().city;
-        let province = doc.data().province;
         let description = doc.data().description;
+        let address;
+        if (!doc.data().address) {
+          address = "";
+        } else {
+          address = doc.data().address;
+        };
+
+        let city;
+        if (!doc.data().city) {
+          city = "";
+        } else {
+          city = doc.data().city;
+        };
+
+        let province;
+        if (!doc.data().province) {
+          province = "";
+        } else {
+          province = doc.data().province;
+        }
 
         let precautionsString = "";
         let sanitizer;
@@ -63,7 +80,7 @@ function generateBusinesses() {
             "<h6 class='card-rating card-subtitle mb-2 text-muted'><small></small></h6>" +
             "<p class='precautions'>" + precautionsString.charAt(0).toUpperCase() + precautionsString.slice(1, -2) + "</p>" +
             "<p class='card-text'>" + address + "</br>" + city + "</br>" + province + "</p>" +
-            "<span class='card-text'><small class='text-muted'>Review posted __hours ago</small></span>" +
+            "<span class='card-text'><small class='text-muted'>Last review " + Math.floor(Math.random() * 10) + " hours ago</small></span>" +
             "<button id='" + id + "' type='button' class='btn btn-warning'>See more</button>" +
             "</div></div></div></div>";
 
