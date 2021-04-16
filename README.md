@@ -19,12 +19,6 @@ Content of the project folder:
 
 ```
  Top level of project folder:
-├── .firebase                   # Folder for firebase
-├── .github                     # Folder for git repo
-├── .vs                         # Folder for vs code
-├── css                         # Folder for css files
-├── images                      # Folder for images
-├── js                          # Folder for scripts
 ├── .firebaserc                 #
 ├── .gitignore                  # Git ignore file
 ├── 404.html                    # HTML file for 404 error page
@@ -53,27 +47,44 @@ Content of the project folder:
 
 It has the following subfolders and files:
 ├── .firebase                   # Folder for git repo
-    └── hosting..cache                          # cache for hosting
+    /hosting..cache                          # cache for hosting
 ├── .github                     # Folder for git repo
-    ├── firebase-hosting-merge.yml              # 
-    └── firebase-hosting-pull-request.yml       # 
+    /firebase-hosting-merge.yml              # 
+    /firebase-hosting-pull-request.yml       # 
 ├── .vs                         # Folder for vs code
 ├── css                         # Folder for git repo
-    ├── businesses.css                          # CSS file for businesses.html  
-    ├── main.css                                # CSS file for main.html
-    ├── navbar-bottom.css                       # CSS file for navbar-bottom.html
-    └── navbar-top.css                          # CSS file for navbar-top.html
+    /businesses.css                          # CSS file for businesses.html  
+    /main.css                                # CSS file for main.html
+    /navbar-bottom.css                       # CSS file for navbar-bottom.html
+    /navbar-top.css                          # CSS file for navbar-top.html
 ├── images                      # Folder for images
+    /bookmark.png
+    /churchs.jpg
+    /coco.jpeg
+    /deer_garden.jpg
+    /dennys.jpg
+    /earnest_icecream.jpeg
+    /house_of_tofu.jpeg
+    /karen.png
+    /la_foret.jpg
+    /la_taqueria.png
+    /mcdonalds.jpg
+    /review.png
+    /star-off.png
+    /star-on.png
+    /sushi_town.jpeg
+    /user.png
+    /whole_foods.jpg
 └── js                          # Folder for scripts
-    ├── business.js                             # JS file to display business information based on the current URL
-    ├── data.js                                 # JS file that gets the business document
-    ├── firebase.js                             # JS file for Firebase API
-    ├── general.js                              #
-    ├── generateBusinesses.js                   # JS file that dynamically generates bootstrap cards for businesses
-    ├── init.js                                 # JS file syncing elements across all pages of the web app
-    ├── login.js                                # JS file allowing user to log in
-    ├── proctocols.js                           # JS file for the protocols constant reference
-    └── search.js                               # JS file for top search box working
+    /business.js                             # JS file to display business information based on the current URL
+    /data.js                                 # JS file that gets the business document
+    /firebase.js                             # JS file for Firebase API
+    /general.js                              #
+    /generateBusinesses.js                   # JS file that dynamically generates bootstrap cards for businesses
+    /init.js                                 # JS file syncing elements across all pages of the web app
+    /login.js                                # JS file allowing user to log in
+    /proctocols.js                           # JS file for the protocols constant reference
+    /search.js                               # JS file for top search box working
 
 Firebase hosting files:
 ├── .firebaserc...
