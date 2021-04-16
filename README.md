@@ -19,18 +19,61 @@ Content of the project folder:
 
 ```
  Top level of project folder:
-├── .gitignore               # Git ignore file
-├── index.html               # landing HTML file, this is what users see when you come to url
-└── README.md
+├── .firebase                   # Folder for firebase
+├── .github                     # Folder for git repo
+├── .vs                         # Folder for vs code
+├── css                         # Folder for css files
+├── images                      # Folder for images
+├── js                          # Folder for scripts
+├── .firebaserc                 #
+├── .gitignore                  # Git ignore file
+├── 404.html                    # HTML file for 404 error page
+├── business-profile-edit.html  # HTML file that business owners can edit their profile
+├── business.html               # HTML file used as template for displaying businesses
+├── businesses.html             # HTML file for displaying businesses
+├── firebase.json               # 
+├── firestore.indexes.json      #
+├── firestore.rules             #
+├── index.html                  # HTML file for index page
+├── login.html                  # HTML file for login page
+├── main.html                   # HTML file for main page of the web
+├── my-business-as-owner.html   # HTML file for business owner profile page
+├── navbar-bottom.html          # HTML file for bottom nav bar templete
+├── navbar-top.html             # HTML file for top search box templete
+├── news.html                   # HTML file for displaying COVID-19 related news and restrictions
+├── profile-edit.html           # HTML file that users can edit their profile
+├── profile.html                # HTML file for user profile page 
+├── proctocol.html              # HTML file used as template for proctocol buttons
+├── README.md                   # README file
+├── reply-reviews-as-owner.html # HTML file that business owners can reply to their customers' reviews
+├── review.html                 # HTML file used as template for displaying reviews
+├── reviews-as-onwer.html       # HTML file for that business owners can see their customers' reivews
+├── reviews-post.html           # HTML file for users to write reviews
+└── reviews.html                # HTML file for users to see reviews for a business
 
 It has the following subfolders and files:
-├── .git                     # Folder for git repo
-├── images                   # Folder for images
-├── scripts                  # Folder for scripts
-├── styles                   # Folder for styles
-├── main.html                # ...
-├── profile.html             # ...
-├── reviews.html             # HTML file with bootstrap layout for reviews page
+├── .firebase                   # Folder for git repo
+    └── hosting..cache                          # cache for hosting
+├── .github                     # Folder for git repo
+    ├── firebase-hosting-merge.yml              # CSS file for navbar-bottom.html
+    └── firebase-hosting-pull-request.yml       # CSS file for navbar-top.html
+├── .vs                         # Folder for vs code
+├── css                         # Folder for git repo
+    ├── businesses.css                          # CSS file for businesses.html  
+    ├── main.css                                # CSS file for main.html
+    ├── navbar-bottom.css                       # CSS file for navbar-bottom.html
+    └── navbar-top.css                          # CSS file for navbar-top.html
+├── images                      # Folder for images
+└── js                          # Folder for scripts
+    ├── businesse.js                            # JS file for  
+    ├── data.js                                 #
+    ├── firebase.js                             # JS file for Firebase API
+    ├── general.js                              #
+    ├── generateBusinesses.js                   #
+    ├── init.js                                 #
+    ├── login.js                                #
+    ├── proctocols.js                           #
+    └── search.js                               # JS file for top search box working
 
 Firebase hosting files:
 ├── .firebaserc...
@@ -38,9 +81,6 @@ Firebase hosting files:
 
 ```
 
-Tips for file naming files and folders:
-* use lowercase with no spaces
-* use dashes (not underscore) for word separation
 
 ## Team
 Jonathan Paugh
