@@ -1,18 +1,18 @@
-## COVID-19 Aware
+## COVAWARE
 
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Contents](#content)
 
 ## General Info
-This browser based web application targeting people concenred about COVID-19 that provides information about how establishments that are interested in visiting are handling COVID-19 by providing crowd sourced business reviews that focus on COVID-19 prevention and precautions. 
+This browser based web application targets people concerned about COVID-19 and provides information about how establishments they are interested in visiting are handling COVID-19 by providing crowd sourced business reviews that focus on COVID-19 prevention and precautions. 
 
 ## Technologies
 Technologies used for this project:
 * HTML, CSS
 * JavaScript, jQuery
 * Bootstrap
-* ...
+* Firebase SDKs
 
 ## Content
 Content of the project folder:
@@ -38,8 +38,8 @@ Content of the project folder:
 ├── login.html                  # HTML file for login page
 ├── main.html                   # HTML file for main page of the web
 ├── my-business-as-owner.html   # HTML file for business owner profile page
-├── navbar-bottom.html          # HTML file for bottom nav bar templete
-├── navbar-top.html             # HTML file for top search box templete
+├── navbar-bottom.html          # HTML file for bottom nav bar template
+├── navbar-top.html             # HTML file for top search box template
 ├── news.html                   # HTML file for displaying COVID-19 related news and restrictions
 ├── profile-edit.html           # HTML file that users can edit their profile
 ├── profile.html                # HTML file for user profile page 
@@ -55,8 +55,8 @@ It has the following subfolders and files:
 ├── .firebase                   # Folder for git repo
     └── hosting..cache                          # cache for hosting
 ├── .github                     # Folder for git repo
-    ├── firebase-hosting-merge.yml              # CSS file for navbar-bottom.html
-    └── firebase-hosting-pull-request.yml       # CSS file for navbar-top.html
+    ├── firebase-hosting-merge.yml              # 
+    └── firebase-hosting-pull-request.yml       # 
 ├── .vs                         # Folder for vs code
 ├── css                         # Folder for git repo
     ├── businesses.css                          # CSS file for businesses.html  
@@ -65,14 +65,14 @@ It has the following subfolders and files:
     └── navbar-top.css                          # CSS file for navbar-top.html
 ├── images                      # Folder for images
 └── js                          # Folder for scripts
-    ├── businesse.js                            # JS file for  
-    ├── data.js                                 #
+    ├── business.js                             # JS file to display business information based on the current URL
+    ├── data.js                                 # JS file that gets the business document
     ├── firebase.js                             # JS file for Firebase API
     ├── general.js                              #
-    ├── generateBusinesses.js                   #
-    ├── init.js                                 #
-    ├── login.js                                #
-    ├── proctocols.js                           #
+    ├── generateBusinesses.js                   # JS file that dynamically generates bootstrap cards for businesses
+    ├── init.js                                 # JS file syncing elements across all pages of the web app
+    ├── login.js                                # JS file allowing user to log in
+    ├── proctocols.js                           # JS file for the protocols constant reference
     └── search.js                               # JS file for top search box working
 
 Firebase hosting files:

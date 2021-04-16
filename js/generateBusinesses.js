@@ -2,6 +2,7 @@ $(document).ready(() => {
   generateBusinesses();
 });
 
+//Dynamically generates businesses based on a snapshot of the businesses collection in Firebase
 function generateBusinesses() {
   db.collection("businesses").orderBy("name")
     .get()
@@ -78,7 +79,7 @@ function generateBusinesses() {
             "<h5 class='card-title'>" + name + "</h5>" +
             "<h6 class='card-subtitle mb-2 text-muted'>" + description + "</h6>" +
             "<h6 class='card-rating card-subtitle mb-2 text-muted'><small></small></h6>" +
-            "<p class='precautions'>" + precautionsString.charAt(0).toUpperCase() + precautionsString.slice(1, -2) + "</p>" +
+            "<p class='precautions'>" + precautionsString.charAt(0).toUpperCase() + precautionsString.slice(1, -2) + "</p>" +       //Changes the first letter of the string to uppercase and removes the trailing comma from the end
             "<p class='card-text'>" + address + "</br>" + city + "</br>" + province + "</p>" +
             "<span class='card-text'><small class='text-muted'>Last review " + Math.floor(Math.random() * 10) + " hours ago</small></span>" +
             "<button id='" + id + "' type='button' class='btn btn-warning'>See more</button>" +
